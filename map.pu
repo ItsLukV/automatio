@@ -1,0 +1,32 @@
+@startuml map
+
+class Map
+class Machine
+class Player
+interface Actor
+
+abstract ComponentTile
+interface Tile
+abstract GroundTile
+interface NonBlockingTile
+interface BlockingTile
+abstract BlockingGroundTile
+abstract NonBlockingGroundTile
+
+' --> call
+' ..> impliment
+' --* extends
+
+Map --> Player
+Map --> Tile
+Actor ..> Tile
+Actor ..> Player
+Tile ..> ComponentTile
+BlockingTile ..> ComponentTile
+ComponentTile --* Machine
+NonBlockingGroundTile <.. NonBlockingTile
+BlockingGroundTile <.. BlockingTile
+NonBlockingGroundTile --* GroundTile
+BlockingGroundTile --* GroundTile
+Tile ..> GroundTile
+@enduml
